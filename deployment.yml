@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: automation-container
-        image: shahnawaz312/java-app:latest
+        image: fajalshaikh/java-app:latest
         ports:
         - containerPort: 9082
         resources:
