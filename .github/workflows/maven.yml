@@ -49,26 +49,28 @@ jobs:
     - name: Update kubeconfig to access EKS cluster
       run: aws eks update-kubeconfig --name automationcluster
 
-    # - name: Deploy MySQL to Kubernetes
-    #   run: |
-    #     kubectl apply -f mysql-deployment.yaml
-    #     kubectl apply -f mysql-service.yaml
+    - name: Deploy MySQL to Kubernetes
+      run: |
+        kubectl apply -f /mysql/pv.yml
+        kubectl apply -f /mysql/pvc.yml
+        kubectl apply -f /mysql/deployment.yml
+        kubectl apply -f /mysql/service.yml
 
-    # - name: Wait for MySQL to be ready
-    #   run: |
-    #     for i in {1..30}; do
-    #       if kubectl get pods | grep mysql | grep Running; then
-    #         echo "MySQL is ready!"
-    #         break
-    #       fi
-    #       echo "Waiting for MySQL..."
-    #       sleep 10
-    #     done
+    - name: Wait for MySQL to be ready
+      run: |
+        for i in {1..30}; do
+          if kubectl get pods | grep mysql | grep Running; then
+            echo "MySQL is ready!"
+            break
+          fi
+          echo "Waiting for MySQL..."
+          sleep 10
+        done
 
     - name: Deploy the application
       run: |
-        kubectl apply -f deployment.yaml
-        kubectl apply -f service.yaml
+        kubectl apply -f deployment.yml
+        kubectl apply -f service.yml
 
     - name: Wait for 10 seconds
       run: sleep 10
