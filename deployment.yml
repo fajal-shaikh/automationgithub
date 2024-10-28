@@ -26,8 +26,8 @@ spec:
             cpu: "1"         # Adjust the CPU limit
         env:
           - name: SPRING_DATASOURCE_URL
-            value: jdbc:mysql://mysql:3306/automation5?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+            value: jdbc:mysql://127.0.0.1:3306/automation5?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
           - name: SPRING_DATASOURCE_USERNAME
             value: root
           - name: SPRING_DATASOURCE_PASSWORD
-            value: root
+            value: Root@123
