@@ -47,7 +47,7 @@ jobs:
         aws-region: us-east-1
 
     - name: Update kubeconfig to access EKS cluster
-      run: aws eks update-kubeconfig --name eksdemo
+      run: aws eks update-kubeconfig --name automationcluster
 
     # - name: Deploy MySQL to Kubernetes
     #   run: |
