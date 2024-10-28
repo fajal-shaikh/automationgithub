@@ -1,14 +1,13 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
- name: mysql-pv
+  name: mysql-pv
 spec:
- capacity:
- storage: 2Gi # Adjust the storage capacity as needed
- accessModes:
- - ReadWriteOnce
- persistentVolumeReclaimPolicy: Delete # This means the volume will be deleted when the PVC is
-deleted
- storageClassName: gp2 # Ensure this matches the storage class you intend to use
- hostPath: # For local testing, replace with AWS EBS or your cloud provider's specification
- path: /mnt/data/mysql # Adjust this path according to your environment
+  capacity:
+    storage: 2Gi # Adjust the storage capacity as needed
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete # Volume will be deleted when the PVC is deleted
+  storageClassName: gp2 # Ensure this matches the storage class you're using
+  hostPath: # For local testing; use cloud-specific options for production (e.g., AWS EBS)
+    path: /mnt/data/mysql # Adjust this path according to your environment
