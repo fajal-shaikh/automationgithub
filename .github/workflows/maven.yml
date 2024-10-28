@@ -51,10 +51,10 @@ jobs:
 
     - name: Deploy MySQL to Kubernetes
       run: |
-        kubectl apply -f /mysql/pv.yml
-        kubectl apply -f /mysql/pvc.yml
-        kubectl apply -f /mysql/deployment.yml
-        kubectl apply -f /mysql/service.yml
+        kubectl apply -f mysql/pv.yml
+        kubectl apply -f mysql/pvc.yml
+        kubectl apply -f mysql/deployment.yml
+        kubectl apply -f mysql/service.yml
 
     - name: Wait for MySQL to be ready
       run: |
