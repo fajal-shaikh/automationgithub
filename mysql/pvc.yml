@@ -1,1 +1,11 @@
-
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: mysql-pvc
+spec:
+ accessModes:
+ - ReadWriteOnce
+ resources:
+ requests:
+ storage: 2Gi # The requested storage size must match or be less than the PV size
+ storageClassName: gp2 # Ensure this matches the storage class of your PV
